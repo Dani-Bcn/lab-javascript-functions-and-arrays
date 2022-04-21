@@ -1,84 +1,153 @@
-// Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+//Iteration #1: Find the maximum
 
+     //whithout sort()
+        console.log("Iteration #1 ")
 
+        const maxOfTwoNumbers=(num1,num2)=>{
+            num1>num2?console.log(num1):console.log(num2)
+        }
+        maxOfTwoNumbers(500,1000)
 
-// Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+        //With sort()
+        const twoNumbers=[]
+        const maxOfTwoNumbersWithSort=((num1,num2)=>{
+          twoNumbers.push(num1,num2)
+          console.log(twoNumbers.sort((a,b)=>b-a)[0])        
+        })      
+        maxOfTwoNumbersWithSort(500,1000)
 
-function findLongestWord() {}
+        //Iteration #2: Find the longest word
 
+        //whithout sort()
+        console.log("Iteration #2")
 
+        const words = ['mystery', 'brother', 'aviator',"co", 'crocodile', 'pearl', 'orchard', 'crackpot'];
+        const findTheShortestWord=(myArray)=>{
+            let value = myArray[0];
+            for(let element of words){
+                if(element.length > value.length){
+                value =element;
+                }
+            }  
+            console.log(value)
+        }
+        findTheShortestWord(words);
 
-// Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+        //With sort()
+        const findTheShortestWord2=(words)=>{
+        console.log(words.sort((a, b)=> b.length -a.length)[0])
+        }
 
-function sumNumbers() {}
+        findTheShortestWord2(words);
 
+        //Iteration #3: Calculate the sum        
+        console.log("Iteration #3")
 
+        const arrConst=[6 ,  12 ,  1 ,  18 ,  13 ,  16 ,  2 ,  1 ,  8 ,  10 ] ;
+        let addItems=0
+        const sumNumbers=(arr)=>{
+            for (i of arr){    
+                addItems=addItems+i
+            }      
+            console.log(addItems)
+        }  
+        sumNumbers(arrConst)
 
-// Iteration #3.1 Bonus:
-function sum() {}
+        //Bonus - Iteration #3.1: A generic sum() function
+        //The goal: Learn how to refactor your code.
+        console.log("Iteration #3.1")
 
+        const mixedArr=[6 ,  12 ,  'miami' ,  1 ,  true ,  'barca' ,  '200' ,  'lisboa' ,  8 ,  10 ] ;
+        let addValues=0
+        const sum=(arr)=>(arr.map((acc)=>{ 
+            typeof(acc)==="string"? addValues+= acc.length:null
+            typeof(acc)==="number"?addValues+=acc:null
+            if(typeof(acc)==="boolean"){
+            acc===true?addValues+=1:addValues+=0
+            }
+        }))
+        sum(mixedArr)
+        console.log(addValues)
 
+        //Iteration #4: Calculate the average
+        //Level 1: Array of numbers
+        console.log("Iteration  #4 Level 1")
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+        let prom
+        const numbers = [2 ,  6 ,  9 ,  10 ,  7 ,  4 ,  1 ,  9];
+        const averageNumbers =(numbers)=>numbers.reduce((a,b)=>{ 
+            
+            return (a + b )
+        })
+        console.log(averageNumbers(numbers)/numbers.length) 
 
-function averageNumbers() {}
+        //Level 2: Array of strings
+        console.log("// Iteration 4 Level 2")
 
+        const words2 =  ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'] ;
+        const averageWordLength =(numbers)=>numbers.reduce((a,b)=>{ 
+        return a + b        
+        })
+        console.log(averageWordLength(words2).length/words2.length)
 
-// Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+        //Bonus - Iteration #4.1: A generic avg() function
+        console.log("Bonus - Iteration #4.1")
 
-function averageWordLength() { }
+        let addValues2=0
+        let coco
+        const avg=(arr)=>(arr.map((acc)=>{ 
+            typeof(acc)==="string"? addValues2+= acc.length:null
+            typeof(acc)==="number"?addValues2+=acc:null
+            if(typeof(acc)==="boolean"){
+            acc===true?addValues2+=1:addValues2+=0
+            }
+            
+        }))
+        avg(mixedArr)
+        console.log(coco=addValues2/mixedArr.length)
 
-// Bonus - Iteration #4.1
-function avg() {}
+        //Iteration #5: Unique arrays
+        console.log("Iteration #5")
+        
+        const  palabras  =  [ 'crab','poison','contagious','simple','bring','sharp','playground','poison','communion','simple','bring'] ;
+        const uniquifyArray=(words)=>{ 
+        let words3=[] 
+        for (i of palabras){
+            words3.indexOf(i) ===-1?words3.push(i):null
+        }
+        console.log(words3)
+        }
+        uniquifyArray(palabras)
 
-// Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+        //Iteration #6: Find elements
+        console.log("Iteration #6s")
 
-function uniquifyArray() {}
+        const  words4  =  ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'] ;        
+        let com
+        const doesWordExist = (words,searchWord)=>{
+            for (i of words){
+            if(i===searchWord){ 
+                com =(i===searchWord); 
+                break; }  
+                com =(i===searchWord)  
+            }          
+            console.log(com)
+        }
+        doesWordExist(words4, "trouble")
 
+        //Iteration #7: Count repetition
+        console.log("Iteration #7: Count repetition")
+        
+        const words5=['machine','matter','subset','trouble','starting','matter','eating','matter','truth','disobedience','matter' ]
+        const howManyTimes=(items,searchWord)=>{
+        let repeatItems=0
+            for (i of items){
+            searchWord.indexOf(i)===0?repeatItems++:null
+            }
+            console.log(repeatItems)
+        }
+        howManyTimes(words5,"matter")
 
-
-// Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-function doesWordExist() {}
-
-
-
-// Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
-
-function howManyTimes() {}
 
 
 
